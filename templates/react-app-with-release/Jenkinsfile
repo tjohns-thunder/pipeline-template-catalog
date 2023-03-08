@@ -56,7 +56,7 @@ pipeline {
                 node() {
                     checkout scm
                     imageTag = env.VERSION
-                    cloudBeesFlowTriggerRelease configuration: 'CD', parameters: '{"release":{"releaseName":"' + targetReleaseName + '","stages":"[{\\"stageName\\": \\"Level 3\\", \\"stageValue\\": true}, {\\"stageName\\": \\"Level 4\\", \\"stageValue\\": true}, {\\"stageName\\": \\"Level 2\\", \\"stageValue\\": true}, {\\"stageName\\": \\"Level 1\\", \\"stageValue\\": true}]","parameters":"[]"}}', projectName: targetCDProject, releaseName: targetReleaseName, startingStage: 'Level 1'
+                    cloudBeesFlowTriggerRelease configuration: 'CD', parameters: '{"release":{"releaseName":"' + targetReleaseName + '","stages":"[{\\"stageName\\": \\"Pre-Production\\", \\"stageValue\\": true}, {\\"stageName\\": \\"Production\\", \\"stageValue\\": true}, {\\"stageName\\": \\"Quality Assurance\\", \\"stageValue\\": true}, {\\"stageName\\": \\"Release Readiness\\", \\"stageValue\\": true}]","parameters":"[]"}}', projectName: targetCDProject, releaseName: targetReleaseName, startingStage: 'Release Readiness'
                 }
             }
         }

@@ -16,10 +16,7 @@ pipeline {
   {
     stage('React Tests') {
       agent {
-        kubernetes {
           label 'nodejs'
-          yaml testPodYaml
-       }
       }
       steps {
             checkout scm           
